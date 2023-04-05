@@ -1,0 +1,46 @@
+<div class="cv">
+<table mat-table class="mat-elevation-z8">
+  <tr>
+    <th mat-sort-header="no">No.</th>
+    <th mat-sort-header="date">Date</th>
+    <th mat-sort-header="buttonState">ButtonState</th>
+    <th mat-sort-header="led">Led</th>
+    <th mat-sort-header="tone">Tone</th>
+  </tr>
+<tr *ngFor="let item of items index as i" >
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="no">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell> {{i +1}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> Date </th>
+    <td mat-cell> {{item.date | date:'medium'}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="buttonState">
+    <th mat-header-cell *matHeaderCellDef> ButtonState </th>
+    <td mat-cell > {{item.buttonState}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="led">
+    <th mat-header-cell *matHeaderCellDef> Led </th>
+    <td mat-cell> {{item.led}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="tone">
+    <th mat-header-cell *matHeaderCellDef> Tone </th>
+    <td mat-cell> {{item.tone}} </td>
+  </ng-container>
+
+</tr>
+</table>
+</div>
+<router-outlet></router-outlet>
